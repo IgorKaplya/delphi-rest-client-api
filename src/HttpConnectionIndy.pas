@@ -15,7 +15,6 @@ type
 
   THttpConnectionIndy = class(TInterfacedObject, IHttpConnection)
   private
-    FIdHttp: TIdHTTP;
     FEnabledCompression: Boolean;
     FVerifyCert: boolean;
     procedure CancelRequest;
@@ -33,6 +32,8 @@ type
     ///  Delphi XE2 and newer
     ///
     function IdSSLIOHandlerSocketOpenSSL1VerifyPeer(Certificate: TIdX509; AOk: Boolean; ADepth, AError: Integer): Boolean;overload;
+  protected
+    FIdHttp: TIdHTTP;
   public
     OnConnectionLost: THTTPConnectionLostEvent;
 
